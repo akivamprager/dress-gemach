@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Title1" Runat="Server">
-    עריכת שמלה
+    עריכת שמלה 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TextContent1" Runat="Server">
 </asp:Content>
