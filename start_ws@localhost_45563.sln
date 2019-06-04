@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService(1)", "http://loc
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_45563"
-		Debug.AspNetCompiler.PhysicalPath = "D:\dress-gemach\WebService\"
+		Debug.AspNetCompiler.PhysicalPath = "WebService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_45563\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_45563"
-		Release.AspNetCompiler.PhysicalPath = "D:\dress-gemach\WebService\"
+		Release.AspNetCompiler.PhysicalPath = "WebService\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_45563\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "D:\dress-gemach\WebService\"
+		SlnRelativePath = "WebService\"
 	EndProjectSection
 EndProject
 Global
