@@ -6,8 +6,9 @@ I'm building a website for a local dress Gemach which will provide the Gemach wi
 ---
 You are welcome to contribute for this Gemach's worthy cause, and donate your unused wedding dresses, or consider donating money to allow the Gemach to keep doing its great work.
 
-[Reim Ahuvim Gemach](https://gemachbs.com)
-[Video of the Gemach](https://www.youtube.com/watch?v=1qGIhIIqiMg)
+Reim Ahuvim Gemach - [Reim Ahuvim Gemach](https://gemachbs.com)
+
+Video of the Gemach - [Video of the Gemach](https://www.youtube.com/watch?v=1qGIhIIqiMg)
 
 You can comment here if you have any suggestions.
 
