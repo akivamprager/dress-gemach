@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Data;
+public class StoreService
+{
+    SqlConnection conn;
+	public StoreService()
+	{
+	}
+    public DataSet GetLatestDresses() { 
+        return null; }
+    public DataSet GetLatestDressesByStyle(string Style)
+    {
+        return null;
+    }
+    public Dress GetDressById(int DressId)
+    {
+        return null;
+    }
+    public void OrderDressByIDAndQuantity(int DressId, int quantity)
+    {
+    }
+}

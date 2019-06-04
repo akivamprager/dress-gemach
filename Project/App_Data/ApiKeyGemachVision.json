@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "daily-torah1",
+  "private_key_id": "1e00fc7e5e252974cfe03c934b9f4e044e2426af",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCsmCQ7+v6xHKLD\nIYYfLaGAM5mgnINqnDGLjcFzybmkOyzh3IQQ3RTfTcGc5qtBVL+rBCRVGDp5Hes+\n1UAEHyx2tywYh8W51DZClQh/BH9aIACH1PB/5uCeSYnOmONmA/8kRPTqqPo9TA88\nggI2mVh90z9RxV57YrM9eFyN62Pc/pJb/w3QLgDKHwKaQ3fGVr/mMCd7CHS15cdk\ntLYd4H7aNq6ofolJvingFs6NcP4Vo+6VNBgVsbInjAGvgNVKtVvvm5IVGhbfMoZf\nNSpzVWm2RnxnNVOrzV4lY0qhT1O5Vwg+SF/7GuZkjRs8d2Gd+btiv+DnnSK8nOx1\nXQwwjrXfAgMBAAECggEAJ/rSIebBSquUdFj2pZA/YeASDSdUNcTaoTYEAttOmmFu\nwx7+pJ1hsVxkpgC02NxVzbqW4/NJ0DaDALoLKylBdnp1x3Tj82jZ7NBy+GFFUs4o\n8U39K9OCYogsWOQHgOEaH/+tMBJWbQ6KVPzUoGsjGXpup3Vtrm0tkeaooeNN7anV\nP/Wdhkc8yEpUQqpJd2F5v4IRwQkoRCvDI6mYBNLLlA+IB0cyOlWap/+e5ysn1nS8\niJ/ab8/5x/f1l8jI5h1rqUxTu2F6sWuHWjAJAjgJKI2b7cHkVgluNo/ZkZMZqfeg\nN2sXPcJExHWs053cC0F6HoqBjL4WHhSFSo+ftKKseQKBgQDUZzdF1ZoBTDiJq+i0\nHhbfuwgz5lHVo2mPZXLJGm3DbkayG8G8HYQuHA7JvJTuN90hVALEoWgs9o8X40sP\n7De0yYFUHmvXY9N7V82ClUwgJ0Ph7pu7my4OTkK6ePaFVUZAnB/RlSZ1e3rDXn/P\n+OHnLtrdHpgESOcy7Nt6o25NywKBgQDQBSglZxRxoToNzKLEkszvHBEL/z1WFTMg\n4yr/TZCkAEfxgfD3taoObFI8P6qnGhYkqtWBQqKQky/HsBNtDuzI+ytF+oFKG4AU\n91Pn14sPXudG5BbEkW1gMqAyx2xDJoKRyd200KxgNB9KEWwD0tWIjd2x03KUisSX\ngH9fMYT1vQKBgHiobZipH4QvNUrXsihnk1zi1WUOKFyxKK0B1zPwZHwJL/XLmMFx\nDv5Wh/wHuZ6dc2uUWsIyYohwQ5cxUhmoeXiko2gSo/ZGSgOePCs6/nSheYllz2fC\nXmZYBMYDIx9Y8sCPL/ARxzgjvfgvvXF6E3INhtznnTmJ5HRkYsWHA4kDAoGAU4+e\nvteXeMXBIkXvpHMr62kk1+Lh6rB9Z1qZrRClZ5vNSpBeEcNh2oVcy2Lv1ExAVN5j\nAZeY4eaeLOLoCskSCPIMQgIM6Y3+d22awOjurW/8C5gYJUId46SygXNmY9sWXCXw\n729brxGA+Cnjb+3DZSVHxuUfg9fyfMFbaQvlUykCgYAQR7EO0zKqPqJNyggbdjT0\nO8wGPjp1ndsTxW9HwoDVJRXiYR8+q5ZeqXCmfbyfGF09bMGTgW8P3gw2sRqWXZro\nQajpYqTpmEWeb2xVvuHWD8RC0BtJuWbh+wxSmwM+mlSCr533TKXUo603jfhDX23p\neymHv08uUtnqVzb8FdkCbg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gemachvision@daily-torah1.iam.gserviceaccount.com",
+  "client_id": "101631594817977907332",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gemachvision%40daily-torah1.iam.gserviceaccount.com"
+}

@@ -1,0 +1,107 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Style.master" AutoEventWireup="true" CodeFile="ViewCatalog1.aspx.cs" Inherits="ViewCatalog1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
+    קטלוג הגמ"ח
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="Title1" runat="Server">
+    קטלוג השמלות
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="TextContent1" runat="Server">
+    השמלות שתועדו במחסן הגמ"ח
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="Title2" runat="Server">
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="TextContent2" runat="Server">
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="Title3" runat="Server">
+    <asp:Label ID="lblMessage" runat="server" EnableViewState="false" />
+</asp:Content>
+<asp:Content ID="Content8" ContentPlaceHolderID="TextContent3" runat="Server">
+</asp:Content>
+<asp:Content ID="Content9" ContentPlaceHolderID="MainContent" runat="Server">
+    <form id="form1" runat="server" dir="rtl">
+        <div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Dresses]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Dresses] WHERE [id_dress] = @original_id_dress AND [size] = @original_size AND (([length] = @original_length) OR ([length] IS NULL AND @original_length IS NULL)) AND (([color] = @original_color) OR ([color] IS NULL AND @original_color IS NULL)) AND (([image_path] = @original_image_path) OR ([image_path] IS NULL AND @original_image_path IS NULL)) AND (([style] = @original_style) OR ([style] IS NULL AND @original_style IS NULL)) AND (([additional_text] = @original_additional_text) OR ([additional_text] IS NULL AND @original_additional_text IS NULL))" InsertCommand="INSERT INTO [Dresses] ([size], [length], [color], [image_path], [style], [additional_text]) VALUES (@size, @length, @color, @image_path, @style, @additional_text)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Dresses] SET [size] = @size, [length] = @length, [color] = @color, [image_path] = @image_path, [style] = @style, [additional_text] = @additional_text WHERE [id_dress] = @original_id_dress AND [size] = @original_size AND (([length] = @original_length) OR ([length] IS NULL AND @original_length IS NULL)) AND (([color] = @original_color) OR ([color] IS NULL AND @original_color IS NULL)) AND (([image_path] = @original_image_path) OR ([image_path] IS NULL AND @original_image_path IS NULL)) AND (([style] = @original_style) OR ([style] IS NULL AND @original_style IS NULL)) AND (([additional_text] = @original_additional_text) OR ([additional_text] IS NULL AND @original_additional_text IS NULL))">
+                <DeleteParameters>
+                    <asp:Parameter Name="original_id_dress" Type="Int32"></asp:Parameter>
+                    <asp:Parameter Name="original_size" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_length" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_color" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_image_path" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_style" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_additional_text" Type="String"></asp:Parameter>
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="size" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="length" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="color" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="image_path" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="style" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="additional_text" Type="String"></asp:Parameter>
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="size" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="length" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="color" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="image_path" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="style" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="additional_text" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_id_dress" Type="Int32"></asp:Parameter>
+                    <asp:Parameter Name="original_size" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_length" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_color" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_image_path" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_style" Type="String"></asp:Parameter>
+                    <asp:Parameter Name="original_additional_text" Type="String"></asp:Parameter>
+                </UpdateParameters>
+            </asp:SqlDataSource>
+            <div class="" style="">
+                <asp:GridView ID="gvDresses" dir="rtl" EmptyDataText="NO DATA" runat="server" CssClass="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-responsive" AutoGenerateColumns="False" DataKeyNames="id_dress" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" OnPageIndexChanging="gvDresses_PageIndexChanging" OnRowCancelingEdit="gvDresses_RowCancelingEdit"
+                    OnRowCommand="gvDresses_RowCommand" OnRowDeleting="gvDresses_RowDeleting" OnRowEditing="gvDresses_RowEditing"
+                    OnRowUpdating="gvDresses_RowUpdating" OnSorting="gvDresses_Sorting" ShowFooter="true">
+                    <Columns>
+                        <asp:CommandField ItemStyle-CssClass="w3-button" ButtonType="Button" ShowInsertButton="true" InsertImageUrl="AddDress2.aspx" ShowEditButton="True" ShowDeleteButton="True" ShowSelectButton="True"></asp:CommandField>
+                        <asp:BoundField ItemStyle-Wrap="true" DataField="id_dress" HeaderText="מס' סידורי" ReadOnly="True" InsertVisible="False" SortExpression="id_dress"></asp:BoundField>
+                        <asp:BoundField DataField="size" HeaderText="מידה" SortExpression="size"></asp:BoundField>
+                        <asp:BoundField DataField="length" HeaderText="אורך" SortExpression="length"></asp:BoundField>
+                        <asp:BoundField DataField="color" HeaderText="צבע" SortExpression="color"></asp:BoundField>
+                        <asp:BoundField DataField="image_path" HeaderText="תמונה" SortExpression="image_path"></asp:BoundField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <div class="w3-card-2">
+                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image_path") %>' onclick="document.getElementById('modal01').style.display='block'" class="w3-round w3-hover-opacity w3-image" Style="max-width: 100px; max-height: 100px; height: 100px; cursor: zoom-in" onerror="if (this.src != 'noimage.png') this.src = 'noimage.png';" />
+                                </div>
+                                <div id="modal01" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
+                                    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                                    <asp:Image ID="Image2" runat="server" ImageUrl='<%# Bind("image_path") %>' Style="width: fit-content" class="w3-modal-content w3-responsive w3-round-large w3-image" onerror="if (this.src != 'noimage.png') this.src = 'noimage.png';" />
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="style" HeaderText="סגנון" SortExpression="style"></asp:BoundField>
+                        <asp:BoundField DataField="additional_text" HeaderText="מידע נוסף" SortExpression="additional_text"></asp:BoundField>
+                    </Columns>
+                    <FooterStyle BackColor="White" ForeColor="#333333"></FooterStyle>
+
+                    <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+                    <PagerStyle HorizontalAlign="Center" BackColor="#336666" ForeColor="White"></PagerStyle>
+
+                    <RowStyle BackColor="White" ForeColor="#333333"></RowStyle>
+
+                    <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+
+                    <SortedAscendingCellStyle BackColor="#F7F7F7"></SortedAscendingCellStyle>
+
+                    <SortedAscendingHeaderStyle BackColor="#487575"></SortedAscendingHeaderStyle>
+
+                    <SortedDescendingCellStyle BackColor="#E5E5E5"></SortedDescendingCellStyle>
+
+                    <SortedDescendingHeaderStyle BackColor="#275353"></SortedDescendingHeaderStyle>
+                </asp:GridView>
+            </div>
+        </div>
+    </form>
+</asp:Content>
+
