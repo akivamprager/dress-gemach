@@ -66,11 +66,11 @@
                     <asp:TemplateField HeaderText="Image">
                         <ItemTemplate>
                             <div class="w3-card-2">
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image_path") %>' onclick="document.getElementById('modal01').style.display='block'" class="w3-round w3-hover-opacity w3-image" Style="max-width: 100px; max-height: 100px; height: 100px; cursor: zoom-in" onerror="if (this.src != 'noimage.png') this.src = 'noimage.png';" />
+                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image_path") %>' onclick="document.getElementById('modal01').style.display='block'" class="w3-round w3-hover-opacity w3-image" Style="max-width: 100px; max-height: 100px; height: 100px; cursor: zoom-in" onerror="if (this.src != 'images/noimage.png') this.src = 'images/noimage.png';" />
                             </div>
                             <div id="modal01" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
                                 <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                                <asp:Image ID="Image2" runat="server" ImageUrl='<%# Bind("image_path") %>' Style="width: fit-content" class="w3-modal-content w3-responsive w3-round-large w3-image" onerror="if (this.src != 'noimage.png') this.src = 'noimage.png';" />
+                                <asp:Image ID="Image2" runat="server" ImageUrl='<%# Bind("image_path") %>' Style="width: fit-content" class="w3-modal-content w3-responsive w3-round-large w3-image" onerror="if (this.src != 'images/noimage.png') this.src = 'images/noimage.png';" />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
