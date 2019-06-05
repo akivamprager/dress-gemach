@@ -27,7 +27,7 @@ public class db
         connection.Close();
         return rowsAffected;
     }
-
+    //returns DataSet from DB for given SQL command string
     public static DataSet vieww(string sql)
     {
         DataSet ds = new DataSet();

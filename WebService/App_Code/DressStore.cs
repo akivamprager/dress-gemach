@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -40,22 +42,19 @@ public class DressStore : System.Web.Services.WebService
 
 
 
+
     [WebMethod]
-    public DataSet dsUser(string name)
+    public DataSet GetLatestDresses()
     {
-        DataTable table1 = new DataTable("patients");
-        table1.Columns.Add("name");
-        table1.Columns.Add("id");
-        table1.Rows.Add("sam", 1);
-        table1.Rows.Add("mark", 2);
-        table1.Rows.Add("atenolol", 12);
-        table1.Rows.Add("amoxicillin", 21);
-
-        // Create a DataSet and put both tables in it.
-        DataSet Dset = new DataSet();
-        Dset.Tables.Add(table1);
-
-
-        return Dset;
+        DataSet ds = new DataSet();
+        string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DressStore.mdf;Integrated Security=True;Connect Timeout=30";
+        SqlConnection connection = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "SELECT * FROM Dresses WHERE WHERE date_published >= DATEADD(month,-1,GETDATE())";
+        cmd.Connection = connection;
+        connection.Open();
+        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        adapter.Fill(ds);
+        return ds;
     }
 }
