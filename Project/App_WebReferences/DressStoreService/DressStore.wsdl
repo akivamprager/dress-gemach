@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestDresses">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLatestDressesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestDressesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestDressesByStyle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="style" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestDressesByStyleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestDressesByStyleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDressObjectByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dressId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDressObjectByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDressObjectByIDResult" type="tns:Dresses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Dresses" />
+      <s:element name="OrderDressByIDAndQuantity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dressId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderDressByIDAndQuantityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDressByIDAndQuantityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestDressesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestDresses" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestDressesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestDressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestDressesByStyleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestDressesByStyle" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestDressesByStyleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestDressesByStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDressObjectByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getDressObjectByID" />
+  </wsdl:message>
+  <wsdl:message name="getDressObjectByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getDressObjectByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderDressByIDAndQuantitySoapIn">
+    <wsdl:part name="parameters" element="tns:OrderDressByIDAndQuantity" />
+  </wsdl:message>
+  <wsdl:message name="OrderDressByIDAndQuantitySoapOut">
+    <wsdl:part name="parameters" element="tns:OrderDressByIDAndQuantityResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DressStoreSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDresses">
+      <wsdl:input message="tns:GetLatestDressesSoapIn" />
+      <wsdl:output message="tns:GetLatestDressesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDressesByStyle">
+      <wsdl:input message="tns:GetLatestDressesByStyleSoapIn" />
+      <wsdl:output message="tns:GetLatestDressesByStyleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDressObjectByID">
+      <wsdl:input message="tns:getDressObjectByIDSoapIn" />
+      <wsdl:output message="tns:getDressObjectByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderDressByIDAndQuantity">
+      <wsdl:input message="tns:OrderDressByIDAndQuantitySoapIn" />
+      <wsdl:output message="tns:OrderDressByIDAndQuantitySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DressStoreSoap" type="tns:DressStoreSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDresses">
+      <soap:operation soapAction="http://tempuri.org/GetLatestDresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDressesByStyle">
+      <soap:operation soapAction="http://tempuri.org/GetLatestDressesByStyle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDressObjectByID">
+      <soap:operation soapAction="http://tempuri.org/getDressObjectByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDressByIDAndQuantity">
+      <soap:operation soapAction="http://tempuri.org/OrderDressByIDAndQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DressStoreSoap12" type="tns:DressStoreSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDresses">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestDresses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDressesByStyle">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestDressesByStyle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDressObjectByID">
+      <soap12:operation soapAction="http://tempuri.org/getDressObjectByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDressByIDAndQuantity">
+      <soap12:operation soapAction="http://tempuri.org/OrderDressByIDAndQuantity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DressStore">
+    <wsdl:port name="DressStoreSoap" binding="tns:DressStoreSoap">
+      <soap:address location="http://localhost:45563/DressStore.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DressStoreSoap12" binding="tns:DressStoreSoap12">
+      <soap12:address location="http://localhost:45563/DressStore.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
