@@ -12,7 +12,7 @@ public partial class Style : System.Web.UI.MasterPage
     {
         string currentPage = Path.GetFileNameWithoutExtension(Page.AppRelativeVirtualPath);
         //pagename.Text = currentPage;
-        if (Session["user"] == null || Session["user"].Equals(""))
+        if (false)//(Session["user"] == null || Session["user"].Equals(""))
         {
             if (currentPage != "Default" && currentPage != "About" && currentPage != "ContactUs")
                 Response.Redirect("Default.aspx?msg=401");
