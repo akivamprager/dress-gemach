@@ -73,7 +73,7 @@ public partial class ViewCatalog1 : System.Web.UI.Page
     private void SetData()
     {
         using (SqlConnection conn = new SqlConnection(db.connectionString))
-        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Dresses]", conn))
+        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Dress]", conn))
         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
         {
             try
@@ -84,8 +84,8 @@ public partial class ViewCatalog1 : System.Web.UI.Page
                 DataView dv = dt.DefaultView;
                 dv.Sort = this.Sort;
 
-                gvDresses.DataSource = dv;
-                gvDresses.DataBind();
+                gvDress.DataSource = dv;
+                gvDress.DataBind();
             }
             catch { }
         }
@@ -99,14 +99,14 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         }
     }
 
-    protected void gvDresses_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    protected void gvDress_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-        gvDresses.PageIndex = e.NewPageIndex;
+        gvDress.PageIndex = e.NewPageIndex;
 
         this.SetData();
     }
 
-    protected void gvDresses_Sorting(object sender, GridViewSortEventArgs e)
+    protected void gvDress_Sorting(object sender, GridViewSortEventArgs e)
     {
         if (this.SortExpression.Equals(e.SortExpression))
         {
@@ -124,29 +124,29 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         this.SetData();
     }
 
-    protected void gvDresses_RowEditing(object sender, GridViewEditEventArgs e)
+    protected void gvDress_RowEditing(object sender, GridViewEditEventArgs e)
     {
-        gvDresses.EditIndex = e.NewEditIndex;
+        gvDress.EditIndex = e.NewEditIndex;
 
         this.SetData();
     }
 
-    protected void gvDresses_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    protected void gvDress_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
-        gvDresses.EditIndex = -1;
+        gvDress.EditIndex = -1;
 
         this.SetData();
     }
 
-    protected void gvDresses_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    protected void gvDress_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-        GridViewRow row = gvDresses.Rows[e.RowIndex];
+        GridViewRow row = gvDress.Rows[e.RowIndex];
         var newValues = this.GetValues(row);
 
         using (SqlConnection conn = new SqlConnection(db.connectionString))
-        using (SqlCommand cmd = new SqlCommand("UPDATE [Dresses] SET [size] = @size, [length] = @length, [color] = @color, [image_path] = @image_path, [style] = @style, [additional_text] = @additional_text, WHERE (id_dress = @id_dress)", conn))
+        using (SqlCommand cmd = new SqlCommand("UPDATE [Dress] SET [size] = @size, [length] = @length, [color] = @color, [image_path] = @image_path, [style] = @style, [additional_text] = @additional_text, WHERE (id_dress = @id_dress)", conn))
         {
-            cmd.Parameters.AddWithValue("id_dress", gvDresses.DataKeys[row.RowIndex]["id_dress"]);
+            cmd.Parameters.AddWithValue("id_dress", gvDress.DataKeys[row.RowIndex]["id_dress"]);
             cmd.Parameters.AddWithValue("size", newValues["size"]);
             cmd.Parameters.AddWithValue("length", newValues["length"]);
             cmd.Parameters.AddWithValue("color", newValues["color"]);
@@ -164,7 +164,7 @@ public partial class ViewCatalog1 : System.Web.UI.Page
                         "Dress '{0}' successfully updated.",
                         cmd.Parameters["id_dress"].Value);
 
-                    gvDresses.EditIndex = -1;
+                    gvDress.EditIndex = -1;
 
                     this.SetData();
                 }
@@ -173,12 +173,12 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         }
     }
 
-    protected void gvDresses_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    protected void gvDress_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         using (SqlConnection conn = new SqlConnection(db.connectionString))
-        using (SqlCommand cmd = new SqlCommand("DELETE FROM [Dresses] WHERE (id_dress = @id_dress)", conn))
+        using (SqlCommand cmd = new SqlCommand("DELETE FROM [Dress] WHERE (id_dress = @id_dress)", conn))
         {
-            cmd.Parameters.AddWithValue("id_dress", gvDresses.DataKeys[e.RowIndex]["id_dress"]);
+            cmd.Parameters.AddWithValue("id_dress", gvDress.DataKeys[e.RowIndex]["id_dress"]);
 
             try
             {
@@ -197,7 +197,7 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         }
     }
 
-    protected void gvDresses_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void gvDress_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName.Equals("Insert"))
         {
@@ -222,7 +222,7 @@ public partial class ViewCatalog1 : System.Web.UI.Page
 
 
             using (SqlConnection conn = new SqlConnection(db.connectionString))
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO [Dresses] ([size], [length], [color], [image_path], [style], [additional_text]) VALUES (@size, @length, @color, @image_path, @style, @additional_text); SELECT @id_dress = SCOPE_IDENTITY()", conn))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [Dress] ([size], [length], [color], [image_path], [style], [additional_text]) VALUES (@size, @length, @color, @image_path, @style, @additional_text); SELECT @id_dress = SCOPE_IDENTITY()", conn))
             {
                 cmd.Parameters.AddWithValue("size", txtSize.Text);
                 cmd.Parameters.AddWithValue("length", txtLength.Text);

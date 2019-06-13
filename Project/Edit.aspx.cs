@@ -22,7 +22,7 @@ public partial class Edit : System.Web.UI.Page
         string id = "0";
         if (Request.QueryString["id"] != null && !Request.QueryString["id"].Equals(""))
             id = Request.QueryString["id"].ToString();
-        DataSet ds = db.vieww("select * from dresses WHERE id =" + id);
+        DataSet ds = db.vieww("select * from Dress WHERE id =" + id);
         DataTable dt = ds.Tables[0];
         if (dt.Rows.Count > 0) {
             DataRow dr = dt.Rows[0];

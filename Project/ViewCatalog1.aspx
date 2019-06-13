@@ -40,9 +40,9 @@
                     alert.style.display = "normal";
                 }
             </script>
-            <asp:GridView BorderStyle="None" HeaderStyle-CssClass="w3-row-padding" EditRowStyle-CssClass="w3-pale-yellow" ID="gvDresses" dir="rtl" runat="server" CssClass="w3-table w3-striped w3-centered w3-border w3-hoverable w3-responsive" AutoGenerateColumns="False" DataKeyNames="id_dress" DataSourceID="SqlDataSource1" AllowPaging="False" AllowSorting="True" OnPageIndexChanging="gvDresses_PageIndexChanging" OnRowCancelingEdit="gvDresses_RowCancelingEdit"
-                OnRowCommand="gvDresses_RowCommand" OnRowDeleting="gvDresses_RowDeleting" OnRowEditing="gvDresses_RowEditing"
-                OnRowUpdating="gvDresses_RowUpdating" OnSorting="gvDresses_Sorting" ShowFooter="true">
+            <asp:GridView BorderStyle="None" HeaderStyle-CssClass="w3-row-padding" EditRowStyle-CssClass="w3-pale-yellow" ID="gvDress" dir="rtl" runat="server" CssClass="w3-table w3-striped w3-centered w3-border w3-hoverable w3-responsive" AutoGenerateColumns="False" DataKeyNames="id_dress" DataSourceID="SqlDataSource1" AllowPaging="False" AllowSorting="True" OnPageIndexChanging="gvDress_PageIndexChanging" OnRowCancelingEdit="gvDress_RowCancelingEdit"
+                OnRowCommand="gvDress_RowCommand" OnRowDeleting="gvDress_RowDeleting" OnRowEditing="gvDress_RowEditing"
+                OnRowUpdating="gvDress_RowUpdating" OnSorting="gvDress_Sorting" ShowFooter="true">
                 
                 <Columns>
                     <asp:TemplateField HeaderText="Actions">
@@ -134,7 +134,7 @@
 
             </asp:GridView>
 
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" DeleteCommand="DELETE FROM [Dresses] WHERE [id_dress] = @id_dress" InsertCommand="INSERT INTO [Dresses] ([size], [length], [image_path], [additional_text]) VALUES (@size, @length, @image_path, @additional_text)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Dresses]" UpdateCommand="UPDATE [Dresses] SET [size] = @size, [length] = @length, [image_path] = @image_path, [additional_text] = @additional_text WHERE [id_dress] = @id_dress">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" DeleteCommand="DELETE FROM [Dress] WHERE [id_dress] = @id_dress" InsertCommand="INSERT INTO [Dress] ([size], [length], [image_path], [additional_text]) VALUES (@size, @length, @image_path, @additional_text)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Dress]" UpdateCommand="UPDATE [Dress] SET [size] = @size, [length] = @length, [image_path] = @image_path, [additional_text] = @additional_text WHERE [id_dress] = @id_dress">
                 <DeleteParameters>
                     <asp:Parameter Name="id_dress" Type="Int32"></asp:Parameter>
                 </DeleteParameters>

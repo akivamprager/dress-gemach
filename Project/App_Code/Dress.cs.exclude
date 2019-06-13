@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for Dresses
+/// Summary description for Dress
 /// </summary>
-public class Dresses
+public class Dress
 {
     private int id_dress;
     private string size;
@@ -14,9 +14,9 @@ public class Dresses
     private string additional_info;
     private DateTime date_published;
 
-	public Dresses()
-	{}
-    public Dresses(int id_dress, string size, string length, string additional_info, DateTime date_published)
+    public Dress()
+    { }
+    public Dress(int id_dress, string size, string length, string additional_info, DateTime date_published)
     {
         this.id_dress = id_dress;
         this.size = size;

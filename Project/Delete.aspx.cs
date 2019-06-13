@@ -9,7 +9,7 @@ public partial class Delete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        db.exec("delete from dresses WHERE id=" + Request.QueryString["id"]);
+        db.exec("delete from Dress WHERE id=" + Request.QueryString["id"]);
         Response.Redirect("ViewCatalog1.aspx?delete=" + Request.QueryString["id"]);
     }
 }

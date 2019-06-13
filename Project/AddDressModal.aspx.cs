@@ -22,9 +22,9 @@ public partial class AddDressModal : System.Web.UI.Page
             try
             {
                 imageName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + System.IO.Path.GetExtension(ImageFile.FileName);
-                saveImagePath = "" + @"images\" + imageName + "";//imagePath + imageName;
+                saveImagePath = "" + @"images\dress_images" + imageName + "";//imagePath + imageName;
                 if (!File.Exists(saveImagePath))
-                    ImageFile.SaveAs(Server.MapPath("images/" + imageName));//AppDomain.CurrentDomain.BaseDirectory+@"images\"+saveImagePath);
+                    ImageFile.SaveAs(Server.MapPath("images/dress_images" + imageName));//AppDomain.CurrentDomain.BaseDirectory+@"images\"+saveImagePath);
                 else
                 {
                     imageName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + "_1" + System.IO.Path.GetExtension(ImageFile.FileName);
@@ -38,7 +38,7 @@ public partial class AddDressModal : System.Web.UI.Page
             }
         }
 
-        string strsql = "insert into [Dresses](size,length,color,image_path,style,additional_text)  values( ";
+        string strsql = "insert into [Dress](size,length,color,image_path,style,additional_text)  values( ";
         strsql += "'" + Size.Text + "',";
         strsql += "'" + Length.Text + "',";
         strsql += "'" + Color.Text + "',";

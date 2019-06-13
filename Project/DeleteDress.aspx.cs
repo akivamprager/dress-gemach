@@ -13,7 +13,7 @@ public partial class DeleteDress : System.Web.UI.Page
         {
             //if (!Session["admin"].Equals("true"))
               //  Response.Redirect("mainPage.aspx?msg=1");
-            db.exec("delete from Dresses WHERE id=" + Request.QueryString["id"]);
+            db.exec("delete from Dress WHERE id=" + Request.QueryString["id"]);
             Response.Redirect("ViewCatalog.aspx?delete=" + Request.QueryString["id"]);
         }
         catch

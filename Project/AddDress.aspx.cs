@@ -31,7 +31,7 @@ public partial class AddDress : System.Web.UI.Page
             }
         }
 
-        string strsql = "insert into [Dresses](size,length,color,image_path,style,additional_text)  values( ";
+        string strsql = "insert into [Dress](size,length,color,image_path,style,additional_text)  values( ";
         strsql += "'" + Size.Text + "',";
         strsql += "'" + Length.Text + "',";
         strsql += "'" + Color.Text + "',";

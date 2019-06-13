@@ -1,4 +1,4 @@
-﻿public class People
+﻿public class Person
 {
     private int id_person;
     private bool is_admin;
@@ -9,7 +9,7 @@
     private string phone;
     private string dress_size;
     private string dress_length;
-    public People()
+    public Person()
     {
     }
     public int Id_person
@@ -111,9 +111,9 @@
             this.dress_length = value;
         }
     }
-    public People a(int idUser)
+    public Person a(int idUser)
     {
-        People u = new People();
+        Person u = new Person();
         return u;
     }
 }

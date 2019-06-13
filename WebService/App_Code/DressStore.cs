@@ -33,7 +33,7 @@ public class DressStore : System.Web.Services.WebService
     //returns dresses published in the last 30 days on the catalog
     public DataSet GetLatestDresses()
     {
-        return ReturnDS("SELECT * FROM Dresses WHERE date_published >= DATEADD(month,-1,GETDATE())");
+        return ReturnDS("SELECT * FROM Dress WHERE date_published >= DATEADD(month,-1,GETDATE())");
     }
     [WebMethod]
     public DataSet GetLatestDressesByStyle(string style)
@@ -47,7 +47,7 @@ public class DressStore : System.Web.Services.WebService
         cmd.Parameters.Add(param);
         string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DressStore.mdf;Integrated Security=True;Connect Timeout=30";
         SqlConnection connection = new SqlConnection(connectionString);
-        cmd.CommandText = "SELECT Dresses.* FROM Dresses INNER JOIN Style2Dress ON Dresses.id_dress = Style2Dress.id_dress INNER JOIN Styles ON Style2Dress.id_style = Styles.id_style WHERE (Styles.style = '@style')AND Dresses.date_published >= DATEADD(month,-1,GETDATE())";
+        cmd.CommandText = "SELECT Dress.* FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style WHERE (Style.style = '@style')AND Dress.date_published >= DATEADD(month,-1,GETDATE())";
         cmd.Connection = connection;
         connection.Open();
         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -56,19 +56,19 @@ public class DressStore : System.Web.Services.WebService
         */
         //first code - probably less safe
         style = style.Replace("'", "''");
-        return ReturnDS("SELECT Dresses.* FROM Dresses INNER JOIN Style2Dress ON Dresses.id_dress = Style2Dress.id_dress INNER JOIN Styles ON Style2Dress.id_style = Styles.id_style WHERE (Styles.style = '" + style + "')AND Dresses.date_published >= DATEADD(month,-1,GETDATE())");
+        return ReturnDS("SELECT Dress.* FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style WHERE (Style.style = '" + style + "')AND Dress.date_published >= DATEADD(month,-1,GETDATE())");
     }
     [WebMethod]
-    public Dresses getDressObjectByID(int dressId)
+    public Dress getDressObjectByID(int dressId)
     {
-        string cmd = "SELECT * FROM Dresses WHERE id_dress=" + dressId;
+        string cmd = "SELECT * FROM Dress WHERE id_dress=" + dressId;
         DataSet ds = ReturnDS(cmd);
         int id_dress = Convert.ToInt32(ds.Tables[0].Rows[0]["id_dress"]);
         string size = ds.Tables[0].Rows[0]["size"].ToString();
         string length = ds.Tables[0].Rows[0]["length"].ToString();
         string additional_info = ds.Tables[0].Rows[0]["additional_info"].ToString();
         DateTime date_published = Convert.ToDateTime(ds.Tables[0].Rows[0]["date_published"]);
-        Dresses dress = new Dresses(id_dress, size, length, additional_info, date_published);
+        Dress dress = new Dress(id_dress, size, length, additional_info, date_published);
 
         return dress;
     }
@@ -76,7 +76,7 @@ public class DressStore : System.Web.Services.WebService
     public string OrderDressByIDAndQuantity(int dressId, int quantity, string name)
     {
         name = name.Replace("'", "''");
-        string sql = "INSERT INTO [dbo].[Orders] ([id_dress], [quantity], [name]) VALUES ("+dressId+", "+quantity+", N'"+name+"')";
+        string sql = "INSERT INTO [dbo].[Order] ([id_dress], [quantity], [name]) VALUES ("+dressId+", "+quantity+", N'"+name+"')";
         string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DressStore.mdf;Integrated Security=True;Connect Timeout=30";
         SqlConnection connection = new SqlConnection(connectionString);
         SqlCommand command = new SqlCommand(sql, connection);
