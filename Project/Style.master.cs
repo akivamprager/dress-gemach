@@ -22,8 +22,8 @@ public partial class Style : System.Web.UI.MasterPage
         }
         else
         {
-            loginLink1.Visible = false;
-            loginLink2.Visible = false;
+            //loginLink1.Visible = false;
+            //loginLink2.Visible = false;
 
         }
 

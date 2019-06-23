@@ -27,6 +27,15 @@ public class db
         connection.Close();
         return rowsAffected;
     }
+    public static int execID(string sql)
+    {
+        SqlConnection connection = new SqlConnection(connectionString);
+        SqlCommand command = new SqlCommand(sql, connection);
+        connection.Open();
+        int id = Convert.ToInt32(command.ExecuteScalar());
+        connection.Close();
+        return id;
+    }
     //returns DataSet from DB for given SQL command string
     public static DataSet vieww(string sql)
     {

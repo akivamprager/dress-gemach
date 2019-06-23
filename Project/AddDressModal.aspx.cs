@@ -38,19 +38,28 @@ public partial class AddDressModal : System.Web.UI.Page
             }
         }
 
-        string strsql = "insert into [Dress](size,length,color,image_path,style,additional_text)  values( ";
+        string strsql = "insert into [Dress](size,length,image_path,additional_text)  values( ";
         strsql += "'" + Size.Text + "',";
         strsql += "'" + Length.Text + "',";
-        strsql += "'" + Color.Text + "',";
         if (ImageFile.HasFile)
             strsql += "'" + saveImagePath + "',";
         else
             strsql += "'null',";
-        strsql += "'" + Style.Text + "',";
-        strsql += "'" + Info.Text + "')";
+        strsql += "'" + Info.Text + "'); SELECT SCOPE_IDENTITY()";
+        int dress_id = db.execID(strsql);
+        string strsql2 = "insert into [Color2Dress](id_dress,id_color) values(";
+        strsql2 += "'" + dress_id + "',";
+        strsql2 += "'" + DropDownColor.SelectedValue + "')";
+        db.exec(strsql2);
+        string strsql3 = "insert into [Style2Dress](id_dress,id_style) values(";
+        strsql3 += "'" + dress_id + "',";
+        strsql3 += "'" + DropDownStyle.SelectedValue + "')";
+        db.exec(strsql3);
 
-        db.exec(strsql);
-        Response.Redirect("AddDressSuccess.html");
+        ClientScript.RegisterStartupScript(this.GetType(), "RefreshParent", "<script language='javascript'>RefreshParent()</script>");
+
+
+        //Response.Redirect("AddDressSuccess.html");
 
         //Response.Redirect("NewDress.aspx");
     
