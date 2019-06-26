@@ -82,11 +82,9 @@
                 <asp:Label runat="server" ID="error"></asp:Label></h3>
             <h2 class="w3-center">כניסה לאתר</h2>
             <label><b>שם משתמש:</b></label>
-                        <asp:TextBox ID="Username" placeholder="example123" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
-                        <label><b>סיסמה:</b></label>
-                        <asp:TextBox ID="Password" placeholder="12345" runat="server" TextMode="Password" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
-                  
-            
+            <asp:TextBox ID="Username" placeholder="example123" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
+            <label><b>סיסמה:</b></label>
+            <asp:TextBox ID="Password" placeholder="12345" runat="server" TextMode="Password" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
             <b>
                 <br />
                 <br>

@@ -83,7 +83,6 @@
             <label><b>אורך השמלה (ס"מ):</b></label>
 
             <asp:TextBox ID="Length" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
-
             <label><b>צבע דומיננטי בשמלה:</b></label>
             <br />
             <asp:DropDownList CssClass="w3-select w3-border w3-padding w3-round-xxlarge" ID="DropDownColor" runat="server" DataSourceID="colorSDC" DataTextField="color_name" DataValueField="id_color">
