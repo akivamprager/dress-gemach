@@ -125,15 +125,12 @@
                         <asp:ContentPlaceHolder ID="Title1" runat="server">
                         </asp:ContentPlaceHolder>
                     </h1>
-                    <p>
                         <asp:ContentPlaceHolder ID="TextContent1" runat="server">
                         </asp:ContentPlaceHolder>
                         <div id="alert" class="w3-panel w3-animate-opacity w3-card w3-round-large" style="display:none">
                         <h3 id="alert_heading"></h3>
                         <p id="alert_content"></p>
                     </div>
-                    
-                    </p>
                 </div>
             </div>
             <div class="w3-row">

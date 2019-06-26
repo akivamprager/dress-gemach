@@ -7,7 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Borrow : System.Web.UI.Page
+public partial class Return : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -15,10 +15,11 @@ public partial class Borrow : System.Web.UI.Page
     }
     protected void Submit_Click(object sender, EventArgs e)
     {
-        string strsql = "insert into [Borrow](id_dress,id_person,borrow_info)  values( ";
-        strsql += "'" + DropDownDress.SelectedIndex + "',";
-        strsql += "'" + DropDownPerson.SelectedIndex + "',";
-        strsql += "'" + borrow_info.Text + "')";
+        string strsql = "update [Borrow] set date_returned = getdate(), return_info=";
+        strsql += "'" + return_info.Text;
+        strsql += "' where id_dress='" + DropDownDress.SelectedIndex;
+        strsql += "' and id_person='" + DropDownPerson.SelectedIndex+"'";
+
         db.exec(strsql);
         message.Visible = true;
         message.Text = "השמלה הושאלה בהצלחה!";

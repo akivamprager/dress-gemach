@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Style.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Style.master" AutoEventWireup="true" CodeFile="Return.aspx.cs" Inherits="Return" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    כניסה לאתר
+    החזרת שמלה
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -51,31 +50,37 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Title1" runat="Server">
-    התחברות לאתר
+החזרת שמלה
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TextContent1" runat="Server">
-    התחברו על מנת להשתמש בשירותי האתר.
+אנא מילאו את פרטי המחזיר והשמלה המוחזרת
+<h2><asp:Label runat="server" Visible="false" CssClass="w3-animate-opacity" ID="message"></asp:Label></h2>
+        
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="w3-container w3-card-4 w3-round-large w3-light-grey w3-text-teal w3-padding w3-margin">
-        <h3>
-            <asp:Label runat="server" ID="error"></asp:Label></h3>
-        <h2 class="w3-center">התחברות</h2>
+        <h2 class="w3-center">החזרת השמלה לקטלוג</h2>
 
-        <label><b>שם משתמש:</b></label>
-
-        <asp:TextBox ID="Username" placeholder="" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
-
-        <label><b>סיסמה:</b></label>
-
-        <asp:TextBox ID="Password" TextMode="Password" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
+        <label><b>המחזיר:</b></label>
+        <asp:DropDownList CssClass="w3-select w3-border w3-padding w3-round-xxlarge" ID="DropDownPerson" runat="server" DataSourceID="personSDC" DataTextField="full_name" DataValueField="id_person"></asp:DropDownList>
+        <asp:SqlDataSource runat="server" ID="personSDC" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="select distinct person.id_person, person.full_name from person,borrow where person.id_person=borrow.id_person"></asp:SqlDataSource>
+        <br />
+        <label><b>קוד השמלה:</b></label>
+        <asp:DropDownList CssClass="w3-select w3-border w3-padding w3-round-xxlarge" ID="DropDownDress" runat="server" DataSourceID="dressSDC" DataTextField="id_dress" DataValueField="id_dress"></asp:DropDownList>
+        <asp:SqlDataSource runat="server" ID="dressSDC" ProviderName="System.Data.SqlClient"
+        ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" 
+        SelectCommand="select id_dress from borrow where date_returned is null">
+        </asp:SqlDataSource>
+        <br />
+        <label><b>הערות:</b></label>
+        <asp:TextBox ID="return_info" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
         <br>
         <br>
         <b>
-            <asp:Button ID="Submit" runat="server" class="w3-btn w3-block w3-teal w3-round-xxlarge" Text="הוספת השמלה" OnClick="Submit_Click" />
+            <asp:Button ID="Submit" runat="server" class="w3-btn w3-block w3-teal w3-round-xxlarge" Text="החזרה" OnClick="Submit_Click" />
         </b>
     </div>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Title2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="TextContent2" runat="Server">
