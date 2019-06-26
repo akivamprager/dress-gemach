@@ -59,18 +59,11 @@ public class DressStore : System.Web.Services.WebService
         return ReturnDS("SELECT Dress.* FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style WHERE (Style.style = '" + style + "')AND Dress.date_published >= DATEADD(month,-1,GETDATE())");
     }
     [WebMethod]
-    public Dress getDressObjectByID(int dressId)
+    public DataSet getDressDSByID(int dressId)
     {
         string cmd = "SELECT * FROM Dress WHERE id_dress=" + dressId;
         DataSet ds = ReturnDS(cmd);
-        int id_dress = Convert.ToInt32(ds.Tables[0].Rows[0]["id_dress"]);
-        string size = ds.Tables[0].Rows[0]["size"].ToString();
-        string length = ds.Tables[0].Rows[0]["length"].ToString();
-        string additional_info = ds.Tables[0].Rows[0]["additional_info"].ToString();
-        DateTime date_published = Convert.ToDateTime(ds.Tables[0].Rows[0]["date_published"]);
-        Dress dress = new Dress(id_dress, size, length, additional_info, date_published);
-
-        return dress;
+        return ds;
     }
     [WebMethod]
     public string OrderDressByIDAndQuantity(int dressId, int quantity, string name)
@@ -100,7 +93,6 @@ public class DressStore : System.Web.Services.WebService
         connection.Open();
         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
         adapter.Fill(ds);
-        string x = ds.Tables[0].Rows[0]["size"].ToString();
         return ds;
     }
 }

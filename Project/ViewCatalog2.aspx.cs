@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -133,12 +134,22 @@ public partial class ViewCatalog2 : System.Web.UI.Page
     {
         if (e.CommandName.Equals("Favorite"))
         {
+            DataTable dt = db.viewt("select id_person from person where username='" + HttpContext.Current.User.Identity.Name + "'");
+            int id_person = Convert.ToInt32(dt.Rows[0]["id_person"]);
+            int id_dress = 10;
+            //if (e.CommandArgument == null)
+            string id_dress1 = e.CommandArgument.ToString();
+            //if (id_dress1 == null)
+            //id_dress = Convert.ToInt32(id_dress1);
+            Response.Redirect("?"+id_dress1);
+            //int id_dress = Convert.ToInt32(e.CommandArgument);
+            string sqlcmd = "INSERT INTO [FavoriteDress] ([id_person],[id_dress]) VALUES ("+id_person+", "+id_dress+")";
             using (SqlConnection conn = new SqlConnection(db.connectionString))
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO [FavoriteDress] ([id_person],[id_dress]) VALUES (@id_person, @id_dress)", conn))
+            using (SqlCommand cmd = new SqlCommand(sqlcmd, conn))
             {
-                cmd.Parameters.AddWithValue("id_person", Session["id"]);
-                cmd.Parameters.Add("id_dress", SqlDbType.Int);
-                cmd.Parameters["id_dress"].Direction = ParameterDirection.Output;
+                //cmd.Parameters.AddWithValue("id_person", Session["id_person"]);                
+                //cmd.Parameters.AddWithValue("id_dress", 222);//e.CommandArgument);
+                //cmd.Parameters["id_dress"].Direction = ParameterDirection.Output;
 
                 try
                 {
