@@ -10,6 +10,19 @@ using System.Web.UI.WebControls;
 
 public partial class ViewCatalog2 : System.Web.UI.Page
 {
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["admin"] != null)
+            if (Session["admin"].Equals("true"))
+            {
+                Response.Redirect("ViewCatalog1.aspx?msg=401");
+            }
+        if (!this.IsPostBack)
+        {
+            this.SetData();
+        }
+    }
+
     private string Sort
     {
         get
@@ -88,18 +101,6 @@ public partial class ViewCatalog2 : System.Web.UI.Page
                 gvDress.DataBind();
             }
             catch { }
-        }
-    }
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (Session["admin"].Equals("true"))
-        {
-            Response.Redirect("ViewCatalog1.aspx?msg=401");
-        }
-        if (!this.IsPostBack)
-        {
-            this.SetData();
         }
     }
 

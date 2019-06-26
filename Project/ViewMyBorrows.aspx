@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Style.master" AutoEventWireup="true" CodeFile="ViewMyBorrows.aspx.cs" Inherits="ViewMyBorrows" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-     צפייה בנתוני השאלות שלי
+    צפייה בנתוני השאלות שלי
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -48,11 +48,7 @@
             <PagerStyle CssClass="w3-teal"></PagerStyle>
 
         </asp:GridView>
-        <asp:SqlDataSource ID="borrowSource" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True" 
-        ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [Borrow] WHERE ([id_person] = @id_person)">
-            <SelectParameters>
-                <asp:SessionParameter SessionField="id_person" Name="id_person" Type="Object"></asp:SessionParameter>
-            </SelectParameters>
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="borrowSource" runat="server" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True"
+            ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
     </div>
 </asp:Content>

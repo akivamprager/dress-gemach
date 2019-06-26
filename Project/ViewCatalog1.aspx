@@ -20,15 +20,8 @@
 <asp:Content ID="Content8" ContentPlaceHolderID="TextContent3" runat="Server">
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="MainContent" runat="Server">
-    <!--
-    <div class="w3-panel w3-green w3-round w3-display-container" dir="ltr" id="alert">
-        
-        <span onclick="this.parentElement.style.display='none';" class="w3-button w3-large w3-display-topleft">&times;</span>
-        <p class="">
-            !-->
-    <asp:Label ID="lblMessage" runat="server" EnableViewState="false" Text="" /><!--
-        </p>
-    </div>!-->
+
+    <asp:Label ID="lblMessage" runat="server" EnableViewState="false" Text="" />
     <div class="" style="">
         <script>
             var alert = document.getElementById("alert");
@@ -66,10 +59,6 @@
                         <div class="w3-card-2">
                             <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("image_path") %>' class="w3-round w3-hover-opacity w3-image" Style="max-width: 100px; max-height: 100px; height: 100px;" onerror="if (this.src != 'images/noimage.png') this.src = 'images/noimage.png';" />
                         </div>
-                        <!-- <div id="modal01" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
-                            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-                            <asp:Image ID="Image2" runat="server" ImageUrl='<%# Bind("image_path") %>' Style="width: fit-content" class="w3-modal-content w3-responsive w3-round-large w3-image" onerror="if (this.src != 'images/noimage.png') this.src = 'images/noimage.png';" />
-                        </div>!-->
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -132,28 +121,6 @@
             <HeaderStyle CssClass="w3-teal"></HeaderStyle>
             <PagerStyle CssClass="w3-teal"></PagerStyle>
         </asp:GridView>
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-            ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True"
-            SelectCommand="SELECT Dress.id_dress, Dress.size, Dress.length, Dress.image_path, Dress.additional_text, Style.id_style, Style.style_name, Color.id_color, Color.color_name FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style INNER JOIN Color2Dress ON Dress.id_dress = Color2Dress.id_dress INNER JOIN Color ON Color2Dress.id_color = Color.id_color"
-            DeleteCommand="DELETE FROM [Dress] WHERE [id_dress] = @id_dress; DELETE FROM [Color2Dress] where [id_dress] = @id_dress; DELETE FROM [Style2Dress] where [id_dress] = @id_dress;"
-            UpdateCommand="UPDATE [Dress] SET [size] = @size, [length] = @length, [image_path] = @image_path, [additional_text] = @additional_text WHERE [id_dress] = @id_dress; UPDATE [Color2Dress] SET [id_color] = @id_color WHERE [id_dress] = @id_dress; UPDATE [Style2Dress] SET [id_style] = @id_style WHERE [id_dress] = @id_dress;"
-            ProviderName="System.Data.SqlClient">
-            <DeleteParameters>
-                <asp:Parameter Name="id_dress" Type="Int32"></asp:Parameter>
-            </DeleteParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="size" Type="String"></asp:Parameter>
-                <asp:Parameter Name="length" Type="String"></asp:Parameter>
-                <asp:Parameter Name="image_path" Type="String"></asp:Parameter>
-                <asp:Parameter Name="additional_text" Type="String"></asp:Parameter>
-                <asp:Parameter Name="id_dress" Type="Int32"></asp:Parameter>
-                <asp:Parameter Name="color_name" Type="String"></asp:Parameter>
-                <asp:Parameter Name="id_color" Type="Int32"></asp:Parameter>
-                <asp:Parameter Name="style_name" Type="String"></asp:Parameter>
-                <asp:Parameter Name="id_style" Type="Int32"></asp:Parameter>
-            </UpdateParameters>
-        </asp:SqlDataSource>
     </div>
 </asp:Content>
 

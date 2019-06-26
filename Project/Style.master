@@ -92,31 +92,27 @@
                 </a>
                 <asp:Label runat="server" ID="usernameLabel" class="w3-bar-item w3-teal w3-left"></asp:Label>
                 <asp:HyperLink runat="server" ID="catalog" NavigateUrl="ViewCatalog1.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">קטלוג</asp:HyperLink>
-                <a onclick="document.getElementById('add_dress_modal').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">הוספת שמלה</a>
+                <a runat="server" id="addDressLink" onclick="document.getElementById('add_dress_modal').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">הוספת שמלה</a>
                 <asp:HyperLink runat="server" ID="borrowlink" NavigateUrl="Borrow.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">השאלה</asp:HyperLink>
                 <asp:HyperLink runat="server" ID="returnlink" NavigateUrl="Return.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">החזרה</asp:HyperLink>
                 <asp:HyperLink runat="server" ID="viewborrowslink" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">טבלת השאלות</asp:HyperLink>
                 <a href="About.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">אודות</a>
-
                 <a href="ContactUs.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">צור קשר</a>
-                <!--<a runat="server" id="loginLink1" onclick="document.getElementById('login_modal').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">התחברות</a>!-->
                 <asp:LinkButton runat="server" Visible="true" ID="logoutLink1" OnClick="logoutLink_Click" CssClass="w3-bar-item w3-button w3-hide-small w3-hover-white w3-left" Text="התנתקות"></asp:LinkButton>
             </div>
         </div>
 
         <!-- Sidebar -->
-        <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-right w3-card" id="mySidebar">
+        <nav runat="server" class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-right w3-card" id="mySidebar">
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-left w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
                 <i class="fas fa-remove"></i>
             </a>
             <h4 class="w3-bar-item w3-right-align"><b>תפריט</b></h4>
-            <!--<a class="w3-bar-item w3-button w3-hover-black w3-right-align" href="ViewCatalog1.aspx">בית</a>!-->
-            <a class="w3-bar-item w3-button w3-hover-black w3-right-align" onclick="document.getElementById('add_dress_modal').style.display='block'">הוספת שמלה</a>
+            <a runat="server" id="addDressLink1" class="w3-bar-item w3-button w3-hover-black w3-right-align" onclick="document.getElementById('add_dress_modal').style.display='block'">הוספת שמלה</a>
             <asp:HyperLink runat="server" ID="catalog2" class="w3-bar-item w3-button w3-hover-black w3-right-align" NavigateUrl="ViewCatalog1.aspx">צפייה בקטלוג</asp:HyperLink>
             <asp:HyperLink runat="server" ID="borrowlink1" NavigateUrl="Borrow.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">השאלה</asp:HyperLink>
             <asp:HyperLink runat="server" ID="returnlink1" NavigateUrl="Return.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">החזרה</asp:HyperLink>
             <asp:HyperLink runat="server" ID="viewborrowslink1" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">טבלת השאלות</asp:HyperLink>
-            <!--<a runat="server" id="loginLink2" onclick="document.getElementById('login_modal').style.display='block'" class="w3-bar-item w3-button w3-hover-black w3-right-align">התחברות</a>!-->
             <asp:LinkButton runat="server" Visible="true" ID="logoutLink2" OnClick="logoutLink_Click" CssClass="w3-bar-item w3-button w3-hover-black w3-right-align" Text="התנתקות"></asp:LinkButton>
         </nav>
 
@@ -198,10 +194,8 @@
         <script>
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
-
             // Get the DIV with overlay effect
             var overlayBg = document.getElementById("myOverlay");
-
             // Toggle between showing and hiding the sidebar, and add overlay effect
             function w3_open() {
                 if (mySidebar.style.display === 'block') {

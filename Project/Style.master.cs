@@ -9,7 +9,6 @@ using System.Web.Security;
 
 public partial class Style : System.Web.UI.MasterPage
 {
-    //static bool admin = false;
     protected void Page_Load(object sender, EventArgs e)
     {
         bool admin = false;
@@ -23,10 +22,10 @@ public partial class Style : System.Web.UI.MasterPage
         {
             usernameLabel.Text = "אורח";
             logoutLink1.Visible = false;
-            logoutLink2.Visible = false;
             catalog.Visible = false;
-            catalog2.Visible = false;
-
+            addDressLink.Visible = false;
+            viewborrowslink.Visible = false;
+            mySidebar.Visible = false;
         }
         try
         {
@@ -43,12 +42,14 @@ public partial class Style : System.Web.UI.MasterPage
         {
             catalog.NavigateUrl = "ViewCatalog2.aspx";
             catalog2.NavigateUrl = "ViewCatalog2.aspx";
+            viewborrowslink.NavigateUrl = "ViewMyBorrows.aspx";
+            viewborrowslink1.NavigateUrl = "ViewMyBorrows.aspx";
             borrowlink.Visible = false;
             borrowlink1.Visible = false;
             returnlink.Visible = false;
             returnlink1.Visible = false;
-            viewborrowslink.NavigateUrl = "ViewMyBorrows.aspx";
-            viewborrowslink1.NavigateUrl = "ViewMyBorrows.aspx";
+            addDressLink.Visible = false;
+            addDressLink1.Visible = false;
 
         }
     }
