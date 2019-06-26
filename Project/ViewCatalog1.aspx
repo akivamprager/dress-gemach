@@ -50,7 +50,7 @@
                     <ItemTemplate>
                         <asp:Button CssClass="w3-btn w3-green" ID="btnEdit" runat="server" CommandName="Edit" Text="עריכה" />
                         <asp:Button CssClass="w3-btn w3-red" ID="btnDelete" runat="server" CommandName="Delete" Text="מחיקה" />
-                        <asp:Button CssClass="w3-btn w3-blue" ID="btnBorrow" runat="server" CommandName="Borrow" Text="שאילה" />
+                        <asp:Button CssClass="w3-btn w3-blue" Visible="false" ID="btnBorrow" runat="server" CommandName="Borrow" Text="שאילה" />
                     </ItemTemplate>
 
                     <EditItemTemplate>

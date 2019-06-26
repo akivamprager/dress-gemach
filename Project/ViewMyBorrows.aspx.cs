@@ -8,15 +8,16 @@ using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ViewBorrows : System.Web.UI.Page
+public partial class ViewMyBorrows : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["admin"] != null)
-            if (!Session["admin"].Equals("true"))
+            if (Session["admin"].Equals("true"))
             {
-                Response.Redirect("ViewCatalog2.aspx?msg=401");
+                Response.Redirect("ViewBorrows.aspx?msg=401");
             }
+        
     }
 
 }

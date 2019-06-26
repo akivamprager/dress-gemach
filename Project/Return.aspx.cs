@@ -15,14 +15,14 @@ public partial class Return : System.Web.UI.Page
     }
     protected void Submit_Click(object sender, EventArgs e)
     {
-        string strsql = "update [Borrow] set date_returned = getdate(), return_info=";
+        string strsql = "update top (1) [Borrow] set date_returned = getdate(), return_info=";
         strsql += "'" + return_info.Text;
-        strsql += "' where id_dress='" + DropDownDress.SelectedIndex;
-        strsql += "' and id_person='" + DropDownPerson.SelectedIndex+"'";
+        strsql += "' where id_dress='" + DropDownDress.SelectedValue;
+        strsql += "' and id_person='" + DropDownPerson.SelectedValue+"'";
 
         db.exec(strsql);
         message.Visible = true;
-        message.Text = "השמלה הושאלה בהצלחה!";
+        message.Text = "השמלה הוחזרה בהצלחה!";
         message.CssClass += " w3-text-green";
     }
 }

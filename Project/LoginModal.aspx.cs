@@ -21,7 +21,7 @@ public partial class LoginModal : System.Web.UI.Page
         if (dt.Rows.Count > 0)
         {
             Session["username"] = username;
-           // Session["id"] = dt.Rows[0]["id_person"];
+            Session["id_person"] = dt.Rows[0]["id_person"];
             Session["fullname"] = dt.Rows[0]["full_name"];
             if (dt.Rows[0]["is_admin"].ToString().Equals("True"))
                 Session["admin"] = "true";

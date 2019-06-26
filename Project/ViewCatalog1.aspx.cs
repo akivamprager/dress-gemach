@@ -93,10 +93,11 @@ public partial class ViewCatalog1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Session["admin"].Equals("true"))
-        {
-            Response.Redirect("ViewCatalog2.aspx?msg=401");
-        }
+        if (Session["admin"] != null)
+            if (!Session["admin"].Equals("true"))
+            {
+                Response.Redirect("ViewCatalog2.aspx?msg=401");
+            }
         if (!this.IsPostBack)
         {
             this.SetData();
@@ -149,11 +150,11 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         var newValues = this.GetValues(row);
 
         using (SqlConnection conn = new SqlConnection(db.connectionString))
-        using (SqlCommand cmd = new SqlCommand("UPDATE [Dress] SET [size] = @size, [length] = @length, [image_path] = @image_path, [additional_text] = @additional_text WHERE [id_dress] = @id_dress;",conn))// UPDATE [Color2Dress] SET [id_color] = @id_color WHERE [id_dress] = @id_dress; UPDATE [Style2Dress] SET [id_style] = @id_style WHERE [id_dress] = @id_dress;", conn))
+        using (SqlCommand cmd = new SqlCommand("UPDATE [Dress] SET [size] = @size, [length] = @length, [image_path] = @image_path, [additional_text] = @additional_text WHERE [id_dress] = @id_dress;", conn))// UPDATE [Color2Dress] SET [id_color] = @id_color WHERE [id_dress] = @id_dress; UPDATE [Style2Dress] SET [id_style] = @id_style WHERE [id_dress] = @id_dress;", conn))
         {
-           // DropDownList ddColorName = row.FindControl("ddColorName") as DropDownList;
-           // DropDownList ddStyleName = row.FindControl("ddStyleName") as DropDownList;
-           
+            // DropDownList ddColorName = row.FindControl("ddColorName") as DropDownList;
+            // DropDownList ddStyleName = row.FindControl("ddStyleName") as DropDownList;
+
             /*SqlDataSource colorSDC = new SqlDataSource();
             colorSDC.ConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\GemachDB.mdf;Integrated Security=True";
             colorSDC.ProviderName = "System.Data.SqlClient";
@@ -171,11 +172,11 @@ public partial class ViewCatalog1 : System.Web.UI.Page
             cmd.Parameters.AddWithValue("id_dress", gvDress.DataKeys[row.RowIndex]["id_dress"]);
             cmd.Parameters.AddWithValue("size", newValues["size"]);
             cmd.Parameters.AddWithValue("length", newValues["length"]);
-            //cmd.Parameters.AddWithValue("id_color", ddColorName.SelectedIndex);//gvDress.DataKeys[row.RowIndex]["id_color"]);//ddColorName.value);//newValues["id_color"]);//
+            //cmd.Parameters.AddWithValue("id_color", ddColorName.SelectedValue);//gvDress.DataKeys[row.RowIndex]["id_color"]);//ddColorName.value);//newValues["id_color"]);//
             cmd.Parameters.AddWithValue("image_path", newValues["image_path"]);
-            //cmd.Parameters.AddWithValue("id_style", ddStyleName.SelectedIndex);//gvDress.DataKeys[row.RowIndex]["id_style"]);//ddStyleName.value);//newValues["id_style"]);//
+            //cmd.Parameters.AddWithValue("id_style", ddStyleName.SelectedValue);//gvDress.DataKeys[row.RowIndex]["id_style"]);//ddStyleName.value);//newValues["id_style"]);//
             cmd.Parameters.AddWithValue("additional_text", newValues["additional_text"]);
-            
+
             try
             {
                 conn.Open();
@@ -266,9 +267,9 @@ public partial class ViewCatalog1 : System.Web.UI.Page
             {
                 cmd.Parameters.AddWithValue("size", txtSize.Text);
                 cmd.Parameters.AddWithValue("length", txtLength.Text);
-                cmd.Parameters.AddWithValue("id_color", ddColorName.SelectedIndex);
+                cmd.Parameters.AddWithValue("id_color", ddColorName.SelectedValue);
                 cmd.Parameters.AddWithValue("image_path", txtImagePath.Text);
-                cmd.Parameters.AddWithValue("id_style", ddStyleName.SelectedIndex);
+                cmd.Parameters.AddWithValue("id_style", ddStyleName.SelectedValue);
                 cmd.Parameters.AddWithValue("additional_text", txtAdditionalText.Text);
 
                 cmd.Parameters.Add("id_dress", SqlDbType.Int);
@@ -290,7 +291,7 @@ public partial class ViewCatalog1 : System.Web.UI.Page
                 catch { }
             }
         }*/
-        if (e.CommandName.Equals("Borrow"))
+        /*if (e.CommandName.Equals("Borrow"))
         {
             //GridViewRow row = gvDress.Rows[e.];
             using (SqlConnection conn = new SqlConnection(db.connectionString))
@@ -302,9 +303,9 @@ public partial class ViewCatalog1 : System.Web.UI.Page
                 //cmd.Parameters.AddWithValue("id_dress", gvDress.DataKeys[row.RowIndex]["id_dress"]);
             }
             Response.Redirect("ViewCatalog1.aspx?" + DateTime.Now.ToString());
-        }
+        }*/
         //
-        
+
     }
 }
 

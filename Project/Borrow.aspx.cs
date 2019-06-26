@@ -16,8 +16,8 @@ public partial class Borrow : System.Web.UI.Page
     protected void Submit_Click(object sender, EventArgs e)
     {
         string strsql = "insert into [Borrow](id_dress,id_person,borrow_info)  values( ";
-        strsql += "'" + DropDownDress.SelectedIndex + "',";
-        strsql += "'" + DropDownPerson.SelectedIndex + "',";
+        strsql += "'" + DropDownDress.SelectedValue + "',";
+        strsql += "'" + DropDownPerson.SelectedValue + "',";
         strsql += "'" + borrow_info.Text + "')";
         db.exec(strsql);
         message.Visible = true;
