@@ -36,7 +36,7 @@
             ID="gvDress" dir="rtl" runat="server" CssClass="w3-table w3-striped w3-centered w3-border w3-hoverable w3-responsive"
             AutoGenerateColumns="False" DataKeyNames="id_dress" AllowSorting="True"
             OnPageIndexChanging="gvDress_PageIndexChanging" OnRowCancelingEdit="gvDress_RowCancelingEdit"
-            OnRowCommand="gvDress_RowCommand" OnRowDeleting="gvDress_RowDeleting" OnRowEditing="gvDress_RowEditing"
+            OnRowDeleting="gvDress_RowDeleting" OnRowEditing="gvDress_RowEditing"
             OnRowUpdating="gvDress_RowUpdating" OnSorting="gvDress_Sorting" ShowFooter="false">
             <Columns>
                 <asp:TemplateField HeaderText="Actions">
@@ -45,7 +45,6 @@
                         <asp:Button CssClass="w3-btn w3-red" ID="btnDelete" runat="server" CommandName="Delete" Text="מחיקה" />
                         <asp:Button CssClass="w3-btn w3-blue" Visible="false" ID="btnBorrow" runat="server" CommandName="Borrow" Text="שאילה" />
                     </ItemTemplate>
-
                     <EditItemTemplate>
                         <asp:Button ID="btnUpdate" CssClass="w3-btn w3-green" runat="server" CommandName="Update" Text="עדכון" />
                         <asp:Button ID="btnCancel" CssClass="w3-btn w3-gray" runat="server" CommandName="Cancel" Text="ביטול" />

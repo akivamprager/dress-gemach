@@ -26,6 +26,13 @@ public partial class Style : System.Web.UI.MasterPage
             addDressLink.Visible = false;
             viewborrowslink.Visible = false;
             mySidebar.Visible = false;
+            viewmyfavslink.Visible = false;
+            addfavlink.Visible = false;
+            viewuserslink.Visible = false;
+
+            loginlink.Visible = true;
+            signuplink.Visible = true;
+
         }
         try
         {
@@ -40,6 +47,8 @@ public partial class Style : System.Web.UI.MasterPage
         }
         if (!admin)
         {
+            viewborrowslink.Text = "השאלות שלי";
+            viewborrowslink1.Text = "השאלות שלי";
             catalog.NavigateUrl = "ViewCatalog2.aspx";
             catalog2.NavigateUrl = "ViewCatalog2.aspx";
             viewborrowslink.NavigateUrl = "ViewMyBorrows.aspx";
@@ -50,7 +59,15 @@ public partial class Style : System.Web.UI.MasterPage
             returnlink1.Visible = false;
             addDressLink.Visible = false;
             addDressLink1.Visible = false;
-
+            viewmyfavslink.Visible = true;
+            addfavlink.Visible = true;
+            viewuserslink.Text = "עריכת פרטים";
+        }
+        else
+        {
+            viewmyfavslink.Visible = false;
+            addfavlink.Visible = false;
+            wsOrderlink.Visible = true;
         }
     }
     protected void logoutLink_Click(Object sender, EventArgs e)

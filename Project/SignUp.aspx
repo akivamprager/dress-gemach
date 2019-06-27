@@ -61,6 +61,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="TextContent1" runat="Server">
     רישום לאתר על מנת לצפות בקטלוג השמלות. הרישום הוא חינמי.
+    <h2><asp:Label runat="server" Visible="false" CssClass="w3-animate-opacity" ID="message"></asp:Label></h2>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="Server">
     <form id="form1" runat="server">
@@ -78,19 +79,17 @@
         <asp:TextBox ID="Size" placeholder="12" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
         <label><b>גובה אישי:</b></label>
         <asp:TextBox ID="Length" placeholder="125" runat="server" class="w3-input w3-border w3-round-xxlarge"></asp:TextBox>
-        <asp:Button ID="Submit" runat="server" class="w3-btn w3-block w3-teal w3-round-xxlarge" Text="הרשמה" />
+        <asp:Button ID="Submit" runat="server" OnClick="Submit_Click" class="w3-btn w3-block w3-teal w3-round-xxlarge" Text="הרשמה" />
     </form>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="Title2" runat="Server">
-    ש
+    
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="TextContent2" runat="Server">
-    ש
+    
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="Title3" runat="Server">
-    ש
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="TextContent3" runat="Server">
-    ש
-</asp:Content>
+    </asp:Content>
 

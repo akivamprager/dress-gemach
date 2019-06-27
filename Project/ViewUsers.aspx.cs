@@ -5,17 +5,18 @@ using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ViewBorrows : System.Web.UI.Page
+public partial class ViewUsers : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["admin"] != null)
             if (!Session["admin"].Equals("true"))
             {
-                Response.Redirect("ViewMyBorrows.aspx?msg=401");
+                userSource.SelectCommand = "Select * From [Person] where username='" + HttpContext.Current.User.Identity.Name + "'";
             }
     }
 

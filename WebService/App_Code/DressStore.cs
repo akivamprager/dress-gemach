@@ -16,18 +16,7 @@ using System.Web.Services;
 public class DressStore : System.Web.Services.WebService
 {
 
-    public DressStore()
-    {
-
-        //Uncomment the following line if using designed components 
-        //InitializeComponent(); 
-    }
-
-    [WebMethod]
-    public string HelloWorld()
-    {
-        return "Hello World";
-    }
+    public DressStore() {}
 
     [WebMethod]
     //returns dresses published in the last 30 days on the catalog
@@ -38,23 +27,6 @@ public class DressStore : System.Web.Services.WebService
     [WebMethod]
     public DataSet GetLatestDressesByStyle(string style)
     {
-        //new code with param - will check asap, first have to see if this works at all :)
-        /*DataSet ds = new DataSet();
-        SqlParameter param = new SqlParameter();
-        param.ParameterName = "@style";
-        param.Value = style;
-        SqlCommand cmd = new SqlCommand();
-        cmd.Parameters.Add(param);
-        string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\DressStore.mdf;Integrated Security=True;Connect Timeout=30";
-        SqlConnection connection = new SqlConnection(connectionString);
-        cmd.CommandText = "SELECT Dress.* FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style WHERE (Style.style = '@style')AND Dress.date_published >= DATEADD(month,-1,GETDATE())";
-        cmd.Connection = connection;
-        connection.Open();
-        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-        adapter.Fill(ds);
-        return ds;
-        */
-        //first code - probably less safe
         style = style.Replace("'", "''");
         return ReturnDS("SELECT Dress.* FROM Dress INNER JOIN Style2Dress ON Dress.id_dress = Style2Dress.id_dress INNER JOIN Style ON Style2Dress.id_style = Style.id_style WHERE (Style.style = '" + style + "')AND Dress.date_published >= DATEADD(month,-1,GETDATE())");
     }

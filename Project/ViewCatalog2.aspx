@@ -34,15 +34,9 @@
         <asp:GridView BorderStyle="None" HeaderStyle-CssClass="w3-row-padding" EditRowStyle-CssClass="w3-pale-yellow"
             ID="gvDress" dir="rtl" runat="server" CssClass="w3-table w3-striped w3-centered w3-border w3-hoverable w3-responsive"
             AutoGenerateColumns="False" DataKeyNames="id_dress,id_color,id_style" AllowSorting="True"
-            OnPageIndexChanging="gvDress_PageIndexChanging" OnRowCommand="gvDress_RowCommand" OnSorting="gvDress_Sorting">
+            OnPageIndexChanging="gvDress_PageIndexChanging" OnSorting="gvDress_Sorting">
             <Columns>
-                <asp:TemplateField HeaderText="Actions">
-                    <ItemTemplate>
-                        <asp:Button ID="btnFavorite" runat="server" CommandName="Favorite" Text="מועדף" />
-                        <asp:Button ID="btnAskBorrow" runat="server" CommandName="AskBorrow" Text="בקשה לשאילה" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-
+                
                 <asp:BoundField DataField="id_dress" HeaderText="Dress ID" ReadOnly="True" InsertVisible="False" SortExpression="id_dress"></asp:BoundField>
 
                 <asp:TemplateField HeaderText="Image">

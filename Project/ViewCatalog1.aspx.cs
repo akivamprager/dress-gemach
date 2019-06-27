@@ -204,4 +204,3 @@ public partial class ViewCatalog1 : System.Web.UI.Page
         Response.Redirect("ViewCatalog1.aspx?" + DateTime.Now.ToString());
     }
 }
-

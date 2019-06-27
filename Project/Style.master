@@ -95,9 +95,12 @@
                 <a runat="server" id="addDressLink" onclick="document.getElementById('add_dress_modal').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">הוספת שמלה</a>
                 <asp:HyperLink runat="server" ID="borrowlink" NavigateUrl="Borrow.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">השאלה</asp:HyperLink>
                 <asp:HyperLink runat="server" ID="returnlink" NavigateUrl="Return.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">החזרה</asp:HyperLink>
-                <asp:HyperLink runat="server" ID="viewborrowslink" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">טבלת השאלות</asp:HyperLink>
+                <asp:HyperLink runat="server" ID="viewborrowslink" Text="טבלת השאלות" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right"></asp:HyperLink>
+                <asp:HyperLink ID="wsOrderlink" runat="server" visible="false" NavigateUrl="wsTest.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">הזמנה חיצונית</asp:HyperLink>
                 <a href="About.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">אודות</a>
-                <a href="ContactUs.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">צור קשר</a>
+                <a href="mailto:akivaprager@gmail.com?subject=wanted to contact you regarding your website" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">צור קשר</a>
+                <asp:HyperLink runat="server" Visible="false" ID="loginlink" NavigateUrl="LoginModal1.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-left">כניסה</asp:HyperLink>
+                <asp:HyperLink runat="server" Visible="false" ID="signuplink" NavigateUrl="SignUp.aspx" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-left">הרשמה</asp:HyperLink>
                 <asp:LinkButton runat="server" Visible="true" ID="logoutLink1" OnClick="logoutLink_Click" CssClass="w3-bar-item w3-button w3-hide-small w3-hover-white w3-left" Text="התנתקות"></asp:LinkButton>
             </div>
         </div>
@@ -112,7 +115,11 @@
             <asp:HyperLink runat="server" ID="catalog2" class="w3-bar-item w3-button w3-hover-black w3-right-align" NavigateUrl="ViewCatalog1.aspx">צפייה בקטלוג</asp:HyperLink>
             <asp:HyperLink runat="server" ID="borrowlink1" NavigateUrl="Borrow.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">השאלה</asp:HyperLink>
             <asp:HyperLink runat="server" ID="returnlink1" NavigateUrl="Return.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">החזרה</asp:HyperLink>
-            <asp:HyperLink runat="server" ID="viewborrowslink1" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">טבלת השאלות</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="viewborrowslink1" NavigateUrl="ViewBorrows.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align" Text="טבלת השאלות"></asp:HyperLink>
+            <asp:HyperLink runat="server" ID="viewmyfavslink" NavigateUrl="ViewMyFavorites.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">המועדפים שלי</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="addfavlink" NavigateUrl="AddFavorite.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align">הוספה למועדפים</asp:HyperLink>
+            <asp:HyperLink runat="server" ID="viewuserslink" NavigateUrl="ViewUsers.aspx" class="w3-bar-item w3-button w3-hover-black w3-right-align" Text="עריכת משתמשים"></asp:HyperLink>
+                        
             <asp:LinkButton runat="server" Visible="true" ID="logoutLink2" OnClick="logoutLink_Click" CssClass="w3-bar-item w3-button w3-hover-black w3-right-align" Text="התנתקות"></asp:LinkButton>
         </nav>
 

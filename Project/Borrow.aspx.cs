@@ -11,7 +11,11 @@ public partial class Borrow : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["admin"] != null)
+            if (!Session["admin"].Equals("true"))
+            {
+                Response.Redirect("ViewCatalog2.aspx?msg=401");
+            }
     }
     protected void Submit_Click(object sender, EventArgs e)
     {

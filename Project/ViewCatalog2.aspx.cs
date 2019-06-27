@@ -129,7 +129,7 @@ public partial class ViewCatalog2 : System.Web.UI.Page
 
         this.SetData();
     }
-
+    /*
     protected void gvDress_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         if (e.CommandName.Equals("Favorite"))
@@ -173,6 +173,6 @@ public partial class ViewCatalog2 : System.Web.UI.Page
             string link = "parent.location='mailto:" + email + "?subject=Dress Request&body=I would like to request to borrow dress numbered...'";
             ClientScript.RegisterStartupScript(this.GetType(), "mailto", link, true);
         }
-    }
+    }*/
 }
 
